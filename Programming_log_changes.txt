@@ -1,0 +1,85 @@
+My list of changes before attempting to implement stage 4 are as follows:
+
+
+- error handling for user input, also using begin / rescue
+
+- enter move "a1 to b3" any other format will trigger error
+
+-  add real chess symbols, and display function, click method?
+
+- make board half black half white squares
+
+
+
+-✓✓ use :: or Class.CONSTANT to access constants stored in classes if necessary
+
+ ✓✓  put DIM in Board class
+
+-✓✓ need to use attr_reader / attr_writer /  attr_acesssor whereever possible
+
+-✓✓ use [].tap anytime i do result = [] and then later return result
+
+-✓✓ change board_value variable name to piece wherever applicable
+
+-✓✓ add comment  ### return empty if teammate
+
+ ✓✓ ###return just the enemy position tuple if they are there
+
+ ✓✓ where applicable
+
+-✓✓ fix overall organization of methods
+
+-✓✓ get rid of drow dcol and just use delta[0]
+
+-✓✓ create function called if_teammate?() and also if_enemy?
+
+ ✓✓ replace lines like this
+
+ ✓✓ !board_value.nil? && board_value.color != @color
+
+
+-✓✓ I need to delete this function:
+
+ ✓✓ def initialize(*args)
+
+ ✓✓   super(*args)
+
+ ✓✓ end
+
+ ✓✓ it was left over from when i was using a @first_move variable for the pawn
+
+
+-✓✓ Apply our new if_enemy?() method on this line
+
+ ✓✓ diagonals.select!{|pos| !board(pos).nil?}
+
+ ✓✓ should be:      if_enemy?(board(pos))
+
+-✓✓ make sure all my board()  board[]  callmakes sense and is necessary
+
+ ✓✓ should add () method in piece class directly to board class??
+
+ ✓✓ or remove all board() calls
+
+
+-✓✓ delete extra debugging output I forgot to delete
+
+ ✓✓  puts "you have this many pieces"
+
+ ✓✓   p players_pieces.length
+
+ ✓✓   puts "here are your valid moves"
+
+ ✓✓   p players_pieces.map{|i| i.valid_moves}
+
+
+
+- ✓✓ this line
+
+ ✓✓ players_pieces.map{|i| i.valid_moves}.all? {|i| i.empty?}
+
+ ✓✓ could be rewritten as
+
+ ✓✓ players_pieces.map(&:valid_moves).all?(&:empty?)
+
+

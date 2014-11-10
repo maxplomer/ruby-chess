@@ -1,0 +1,256 @@
+##### TESTING Phase 5 #####
+
+#Game.new.play
+
+
+##### TESTING refactoring before Phase 5 /  Pawn can capture enemey on diagonal #####
+# x = Board.new
+#
+# x.move!([1,1], [3,1])
+# x.move!([3,1], [4,1])
+# x.move!([4,1], [5,1])
+#
+# x.grid.each do |row|
+#   row.each do |col|
+#     if col.nil?
+#       print "*"
+#     elsif col.is_a?(King)
+#       print "K"
+#     elsif col.is_a?(Queen)
+#       print "Q"
+#     else
+#       print "P"
+#     end
+#   end
+#   puts ""
+# end
+#
+#
+#
+# piece = x[userinput_to_pos('a2')]
+#
+# p piece.moves
+# p piece.valid_moves
+
+##### TESTING refactoring before Phase 5 #####
+
+#x = Board.new
+#
+#x.move!([6,0], [4,0])
+#
+#
+#
+#piece = x[userinput_to_pos('a1')]
+#
+#x.grid.each do |row|
+#  row.each do |col|
+#    if col.nil?
+#      print "*"
+#    elsif col.is_a?(King)
+#      print "K"
+#    elsif col.is_a?(Queen)
+#      print "Q"
+#    else
+#      print "P"
+#    end
+#  end
+#  puts ""
+#end
+#
+#p piece.moves
+#
+#puts "";puts "";puts "";puts "";
+
+##### Phase 4 TESTING checkmate? method#####
+
+# def userinput_to_pos(square)
+#   len = 8
+#   letter = square[0]
+#   row = len - square[1].to_i
+#   col = ('a'..'h').to_a.index(letter)
+#   [row, col]
+# end
+#
+# x = Board.new
+#
+# x.grid.each_with_index do |row, irow|
+#  row.each_index do |icol|
+#    x.grid[irow][icol] = nil
+#  end
+# end
+#
+# x[userinput_to_pos('h1')] = King.new(userinput_to_pos('h1'),x,:black)
+#
+# ['f1', 'f2', 'f3', 'g3', 'h3'].each do |input|
+#  x[userinput_to_pos(input)] = Queen.new(userinput_to_pos(input),x,:white)
+# end
+# puts "am i in checkmate?"
+# p x.checkmate?(:black)
+# puts "am i in check?"
+# p x.in_check?(:black)
+#
+# x.grid.each do |row|
+#  row.each do |col|
+#    if col.nil?
+#      print "*"
+#    elsif col.is_a?(King)
+#      print "K"
+#    elsif col.is_a?(Queen)
+#      print "Q"
+#    else
+#      print "P"
+#    end
+#  end
+#  puts ""
+# end
+# p x[userinput_to_pos('h1')].moves
+#
+# p x[userinput_to_pos('h1')].valid_moves
+
+
+##### Phase 3 TESTING / new dup method #####
+
+#x = Board.new
+#
+#y = x.dup
+#
+#x.move(userinput_to_pos('c2'),userinput_to_pos('c3'))
+#
+#y.grid.each do |row|
+#  row.each do |col|
+#    if col.nil?
+#      print "*"
+#    elsif col.is_a?(King)
+#      print "K"
+#    elsif col.is_a?(Queen)
+#      print "Q"
+#    else
+#      print "P"
+#    end
+#  end
+#  puts ""
+#end
+#
+#xkingblack = x.grid.flatten.select{|piece| piece.is_a?(King) && piece.color == :black}
+#ykingblack = y.grid.flatten.select{|piece| piece.is_a?(King) && piece.color == :black}
+
+
+##### Phase 3 TESTING / piece.valid_moves #####
+
+#x = Board.new
+#pos = [1,1]
+#black_pawn = x[pos]
+#
+#p black_pawn.valid_moves
+
+
+
+
+##### Phase 3 TESTING / board.dup #####
+#x = Board.new
+#y = x.dup
+#
+#p x.object_id
+#p y.object_id
+#
+#start = userinput_to_pos('c2')
+#end_pos = userinput_to_pos('c3')
+#x.move(start, end_pos)
+#
+#y.grid.each do |row|
+#  row.each do |col|
+#    if col.nil?
+#      print "*"
+#    elsif col.is_a?(King)
+#      print "K"
+#    elsif col.is_a?(Queen)
+#      print "Q"
+#    else
+#      print "P"
+#    end
+#  end
+#  puts ""
+#end
+
+
+
+##### Phase 2 TESTING #####
+
+#x = Board.new
+#x.grid.each do |row|
+#  row.each do |col|
+#    if col.nil?
+#      print "*"
+#    elsif col.is_a?(King)
+#      print "K"
+#    elsif col.is_a?(Queen)
+#      print "Q"
+#    else
+#      print "P"
+#    end
+#  end
+#  puts ""
+#end
+#
+#start = userinput_to_pos('c2')
+#end_pos = userinput_to_pos('c3')
+#
+#x.move(start, end_pos)
+#
+#puts ""
+#
+#x.grid.each do |row|
+#  row.each do |col|
+#    if col.nil?
+#      print "*"
+#    elsif col.is_a?(King)
+#      print "K"
+#    elsif col.is_a?(Queen)
+#      print "Q"
+#    else
+#      print "P"
+#    end
+#  end
+#  puts ""
+#end
+
+#p x.in_check?(:black)
+
+##### Phase 1 TESTING #####
+
+#blank_board = [[nil] * 8] * 8 # board = [[nil,nil...8times],[],[]..8times]
+#puts "here is our blank board"
+#blank_board.each {|row| p row}
+#pos = userinput_to_pos('d2')
+#puts "d5 has the index"
+#p pos
+#x = Pawn.new(pos, blank_board, :white)
+#p x.moves
+
+
+
+#notes on moves
+#search in diagonal directions, go off in four branches
+#use until? or use bfs/dfs(dx,dy) to add
+
+#horiz_vert same idea as :diagonal section
+
+####make into a constant somewhere: len = 8 in def userinput_to_pos
+####deltas arrays
+####in the off_board? method want size 8 to be constant
+
+
+
+####instead of recursively search_one_dir, can just do iterative technique where you multiply the array by the delta and
+
+
+#convert result =[] .... result methods to use [].tap
+
+
+#we will assume white always starts at the bottom, black at top
+#therefore white pawns always go in up direction (negative y/smaller row)
+
+
+# if self.color is :black move down (larger rows)
+# if self.color is :white move up (smaller rows)
+#########
